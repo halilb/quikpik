@@ -18,7 +18,8 @@ tmp/
 
 # Dist
 *.gz
-dist/
+dist/quikpik-esm.js.map
+dist/quikpik-esm.css.map
 dev/
 
 # Possibly sensitive data

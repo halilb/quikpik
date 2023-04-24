@@ -1,26 +1,17 @@
 {
   "name": "quikpik",
   "version": "0.0.33",
-  "main": "./dist/quikpik-cjs.js",
+  "main": "./dist/quikpik-esm.js",
   "types": "./types.d.ts",
   "scripts": {
     "prepublishOnly": "npm run build",
-    "build": "npm run build:cjs && npm run build:browser",
+    "build": "npm run build:browser",
     "build:cjs": "NODE_ENV=production esbuild src/index.js --global-name=quikpik --bundle --outfile=dist/quikpik.js --sourcemap=external --minify --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV=\"'production'\"",
-    "build:browser": "NODE_ENV=production esbuild src/index.js --bundle --outfile=dist/quikpik-cjs.js --sourcemap=external --minify --format=cjs  --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV=\"'production'\"",
+    "build:browser": "NODE_ENV=production esbuild src/index.js --bundle --outfile=dist/quikpik-esm.js --sourcemap=external --minify --format=esm  --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV=\"'production'\"",
     "start:bundled": "NODE_ENV=production esbuild public/main.js --global-name=quikpik --bundle --outfile=public/build/bundle.js --sourcemap=external --minify --target=chrome58,firefox57,safari11,edge16 --define:process.env.NODE_ENV=\"'production'\" --servedir=public",
     "start": "esbuild public/main.js --outfile=public/build/bundle.js --bundle --servedir=public",
     "test": ""
   },
-  "files": [
-    "dist/quikpik.js",
-    "dist/quikpik.js.map",
-    "dist/quikpik.css",
-    "dist/quikpik-cjs.js",
-    "dist/quikpik-cjs.js.map",
-    "dist/quikpik-cjs.css",
-    "types.d.ts"
-  ],
   "author": "Christopher Davies <github@christophilus.com>",
   "license": "MIT",
   "devDependencies": {
